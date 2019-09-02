@@ -5,11 +5,11 @@ install:
   - yarn
 script:
   - yarn build
-  - cp -r ./dist/* .
 
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
+  local-dir: ./dist/
   on:
     branch: master
