@@ -22,7 +22,7 @@ module.exports = {
       new SWPrecacheWebpackPlugin({
         cacheId: 'simple-pwa',
         filename: 'sw.js',
-        templateFilePath: path.resolve(__dirname, 'src/sw/service-worker.tmpl'),
+        // templateFilePath: path.resolve(__dirname, 'src/sw/service-worker.tmpl'),
         staticFileGlobs: ['dist/**/*.{js,html,css,png,jpg,jpeg,gif,sv}'],
         staticFileGlobsIgnorePatterns: [/\.map$/, /manifest\.json$/],
         minify: true,
