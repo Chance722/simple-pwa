@@ -2,8 +2,12 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 // const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 
+const BASE_URL = process.env.NODE_ENV === 'production'
+  ? '/simple-pwa/'
+  : '/'
+
 module.exports = {
-  publicPath: '/',
+  publicPath: BASE_URL,
   lintOnSave: false,
   configureWebpack: {
     plugins: [
