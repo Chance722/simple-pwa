@@ -1,15 +1,32 @@
 <template>
   <div class="home">
-    <img src="../assets/chance722.jpg" />
-    <h1>Chance722</h1>
-    <router-link to="/">index</router-link>
+    <img :src="userData && userData.avatar_url" />
+    <h1>{{ userData && userData.login}}</h1>
+    <a :href="userData && userData.html_url">Github</a>
     <h2>This is my introduce</h2>
     <p>Hello World</p>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
+  data () {
+    return {
+      userData: null,
+    }
+  },
+  created () {
+    this.initDoubanUser()
+  },
+  methods: {
+    async initDoubanUser () {
+      const res = await axios.get('https://api.github.com/users/Chance722', {
+        'User-Agent': 'request'
+      })
+      if (res.status === 200) this.userData = res.data
+    },
+  },
 }
 </script>
 
